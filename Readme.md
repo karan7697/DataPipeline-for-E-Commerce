@@ -63,22 +63,22 @@ In the fast-paced world of e-commerce, real-time data analytics is crucial for m
 - Connect Tableau to Redshift and BigQuery.
 - Create dashboards for real-time data visualization.
 
-##Data Visualization
+## Data Visualization
 
-##Tableau Dashboard:
+### Tableau Dashboard:
 
 - Connect to AWS Redshift and Google BigQuery.
 - Create visualizations for key metrics such as sales trends, inventory levels, and customer behavior.
 
-##Results
+## Results
 
-- Processing Latency: Reduced by 85%
-- Sales Conversion Rates: Increased by 15%
-- Inventory Management: Improved by 20%
+- **Processing Latency**: Reduced by 85%
+- **Sales Conversion Rates**: Increased by 15%
+- **Inventory Management**: Improved by 20%
 
-##Conclusion
+## Conclusion
 
-- The real-time data pipeline effectively processes and visualizes e-commerce data, providing valuable insights for improving operational efficiency and strategic decision-making.
+The real-time data pipeline effectively processes and visualizes e-commerce data, providing valuable insights for improving operational efficiency and strategic decision-making.
 
 ## Code Implementation
 
@@ -109,5 +109,3 @@ while True:
         Data=json.dumps(data),
         PartitionKey='partition_key'
     )
-```
-
