@@ -1,0 +1,6 @@
+CREATE TABLE ecommerce_data (
+    event_time TIMESTAMP,
+    product_id INT,
+    quantity INT,
+    price FLOAT
+);
