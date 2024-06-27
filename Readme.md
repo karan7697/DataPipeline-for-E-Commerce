@@ -102,7 +102,8 @@ AWS Lambda Function (Python Script):
 python:
 
 
-```import json
+```
+import json
 import psycopg2
 import os
 
@@ -130,7 +131,8 @@ def lambda_handler(event, context):
     return {
         'statusCode': 200,
         'body': json.dumps('Data processed successfully!')
-    }```
+    }
+	```
 	
 	
 Data Storage
