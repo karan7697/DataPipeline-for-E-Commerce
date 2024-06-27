@@ -1,70 +1,74 @@
-Project Documentation: Data Pipeline for E-commerce Analytics
+# Project Documentation: Data Pipeline for E-commerce Analytics
 
-Project Title: Data Pipeline for E-commerce Analytics
+## Project Title: Data Pipeline for E-commerce Analytics
 
-Description:
+**Description**:  
 This project involves designing a real-time data pipeline that significantly improves the processing efficiency of e-commerce data. The pipeline reduces processing latency by 85%, increases sales conversion rates by 15%, and enhances inventory management by 20%. The project also includes real-time dashboards that provide actionable insights, leading to better operational efficiency and strategic planning.
 
-Tech Stack:
+**Tech Stack**:  
+- AWS: Kinesis, Redshift, Lambda, Glue
+- Tableau
+- TensorFlow
+- Google Cloud Platform: BigQuery
 
-AWS: Kinesis, Redshift, Lambda, Glue
-Tableau
-TensorFlow
-Google Cloud Platform: BigQuery
-Table of Contents
-Introduction
-Architecture
-Setup and Configuration
-Code Implementation
-Data Ingestion
-Data Processing
-Data Storage
-Data Visualization
-Results
-Conclusion
+---
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Architecture](#architecture)
+3. [Setup and Configuration](#setup-and-configuration)
+4. [Code Implementation](#code-implementation)
+   1. [Data Ingestion](#data-ingestion)
+   2. [Data Processing](#data-processing)
+   3. [Data Storage](#data-storage)
+   4. [Data Visualization](#data-visualization)
+5. [Results](#results)
+6. [Conclusion](#conclusion)
 
-Introduction:
+---
+
+## Introduction
 
 In the fast-paced world of e-commerce, real-time data analytics is crucial for maintaining a competitive edge. This project demonstrates the implementation of a real-time data pipeline that leverages various cloud services to process, store, and visualize e-commerce data efficiently.
 
-Architecture:
+## Architecture
 
-Data Ingestion: AWS Kinesis streams capture real-time data from e-commerce platforms.
-Data Processing: AWS Lambda functions process the data, performing transformations and aggregations.
-Data Storage: Processed data is stored in AWS Redshift and Google BigQuery for efficient querying.
-Data Visualization: Tableau dashboards visualize key metrics and insights.
+- **Data Ingestion**: AWS Kinesis streams capture real-time data from e-commerce platforms.
+- **Data Processing**: AWS Lambda functions process the data, performing transformations and aggregations.
+- **Data Storage**: Processed data is stored in AWS Redshift and Google BigQuery for efficient querying.
+- **Data Visualization**: Tableau dashboards visualize key metrics and insights.
 
-Setup and Configuration
+## Setup and Configuration
 
-AWS Kinesis:
-Create a Kinesis data stream.
-Configure data producers to send data to the Kinesis stream.
+### AWS Kinesis:
+- Create a Kinesis data stream.
+- Configure data producers to send data to the Kinesis stream.
 
-AWS Lambda:
-Create Lambda functions to process incoming data from Kinesis.
-Set up triggers for the Lambda functions.
+### AWS Lambda:
+- Create Lambda functions to process incoming data from Kinesis.
+- Set up triggers for the Lambda functions.
 
-AWS Glue:
-Configure Glue jobs to further process and clean the data.
+### AWS Glue:
+- Configure Glue jobs to further process and clean the data.
 
-AWS Redshift:
-Set up a Redshift cluster.
-Create tables and schemas to store processed data.
+### AWS Redshift:
+- Set up a Redshift cluster.
+- Create tables and schemas to store processed data.
 
-Google BigQuery:
-Configure BigQuery datasets and tables.
-Set up data transfers from Redshift to BigQuery if needed.
+### Google BigQuery:
+- Configure BigQuery datasets and tables.
+- Set up data transfers from Redshift to BigQuery if needed.
 
-Tableau:
-Connect Tableau to Redshift and BigQuery.
-Create dashboards for real-time data visualization.
-Code Implementation
-Data Ingestion
+### Tableau:
+- Connect Tableau to Redshift and BigQuery.
+- Create dashboards for real-time data visualization.
 
+## Code Implementation
 
-AWS Kinesis Producer (Python Script):
+### Data Ingestion
 
+**AWS Kinesis Producer** (Python Script):
+```python
 import boto3
 import json
 from datetime import datetime
@@ -87,7 +91,8 @@ while True:
         StreamName='ecommerce_data_stream',
         Data=json.dumps(data),
         PartitionKey='partition_key'
-    )
+    )```
+
 	
 
 Data Processing
@@ -97,7 +102,7 @@ AWS Lambda Function (Python Script):
 python:
 
 
-import json
+```import json
 import psycopg2
 import os
 
@@ -125,21 +130,21 @@ def lambda_handler(event, context):
     return {
         'statusCode': 200,
         'body': json.dumps('Data processed successfully!')
-    }
+    }```
 	
 	
 Data Storage
 
 AWS Redshift Table Schema:
 
-sql
+```sql
 
 CREATE TABLE ecommerce_data (
     event_time TIMESTAMP,
     product_id INT,
     quantity INT,
     price FLOAT
-);
+);```
 
 
 Data Visualization
